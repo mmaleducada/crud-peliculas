@@ -2,16 +2,20 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Practica CRUD de peliculas" />
     <meta name="keywords" content="javascript, DOM, BOM, HTML, CSS" />
     <meta name="author" content="Malena de Arriba" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>CRUD de Peliculas</title>
 </head>
 
@@ -39,10 +43,16 @@
                                 <i class="bi bi-moon-stars-fill"></i>
                             </span>
                             <ul class="dropdown-menu">
-                                <li><button class="dropdown-item"><i class="bi bi-moon-stars-fill"></i>Dark</button>
+                                <li>
+                                    <button class="dropdown-item">
+                                        <i class="bi bi-moon-stars-fill"></i>Dark
+                                    </button>
                                 </li>
-                                <li><button class="dropdown-item"><i
-                                            class="bi bi-brightness-high-fill"></i>Light</button></li>
+                                <li>
+                                    <button class="dropdown-item">
+                                        <i class="bi bi-brightness-high-fill"></i>Light
+                                    </button>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -53,8 +63,217 @@
             </div>
         </nav>
     </header>
-    <main></main>
-    <footer class="bg-dark text-light text-center py-4">&copy; Todos los derechos reservados</footer>
+
+    <main>
+        <section class="container my-4">
+            <div class="text-center">
+                <h1>Administrador de Peliculas</h1>
+                <hr />
+            </div>
+            <div class="row">
+                <p class="col-lg-4">
+                    Opciones:
+                    <button type="button" class="btn btn-outline-primary" id="boton-sumar-pelicula-admi"
+                        data-bs-toggle="modal" data-bs-target="#boton-sumar-pelicula">
+                        <i class="bi bi-bag-plus-fill"></i>
+                    </button>
+                </p>
+            </div>
+            <div class="modal fade" id="boton-sumar-pelicula" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <strong>Administrar serie</strong>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">Código</label>
+                                    <input class="form-control" type="text" placeholder="123" disabled>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div>
+                <h3>Lista de Pelis</h3>
+                <hr />
+                <div class="container text-start">
+                    <div class="row align-items-center linea-blanca">
+                        <div class="col-lg-1 col-1">
+                            <p><strong>#</strong></p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate"><strong>Titulo</strong></p>
+                        </div>
+
+                        <div class="col-lg-3 col-3">
+                            <p class="text-truncate"><strong>Descripcion</strong></p>
+                        </div>
+
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate"><strong>Imagen</strong></p>
+                        </div>
+
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate"><strong>Genero</strong></p>
+                        </div>
+
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate"><strong>Acciones</strong></p>
+                        </div>
+                    </div>
+                    <div class="row align-items-center linea-gris">
+                        <div class="col-lg-1 col-1">
+                            <p><strong>1</strong></p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">Comer, rezar, amar.</p>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <p class="text-truncate">
+                                Después de su divorcio, Liz decide rehacer su vida. Así que
+                                emprende un viaje por el mundo en busca de buena comida,
+                                espiritualidad y amor verdadero.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">
+                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
+                                    href="https://akamai.sscdn.co/uploadfile/letras/playlists/9/5/5/3/95536f1edee842239572a0178b9675b8.jpg">https://pics.filmanffinitiques.com.ar</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate">Drama</p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <div class="row justify-content-evenly">
+                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
+                                    <i class="bi bi-x-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center linea-blanca">
+                        <div class="col-lg-1 col-1">
+                            <p><strong>2</strong></p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">Vidas de papel</p>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <p class="text-truncate">
+                                En las calles de Estambul, un manipulador de desechos enfermo
+                                le abre las puertas a un niño abandonado que lo hace enfrentar
+                                traumas de su propio pasado.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">
+                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
+                                    href="https://finde.latercera.com/wp-content/uploads/2021/03/Vidas-de-papel-3-ok-700x450.jpg">https://pics.filmanffinitiques.com.ar</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate">Drama</p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <div class="row justify-content-evenly">
+                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
+                                    <i class="bi bi-x-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center linea-gris">
+                        <div class="col-lg-1 col-1">
+                            <p><strong>3</strong></p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">El increible castillo vagabundo</p>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <p class="text-truncate">
+                                Sophie es una adolescente que trabaja en una tienda de
+                                sombreros en un pueblo como muchos, pero su vida da un giro
+                                total cuando una bruja la transforma en una anciana.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">
+                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
+                                    href="https://occ.a.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABayC_odlLzfnTG7gHh5igKyyUzO3FuJdmYdpEf_ncI68Nd6bXPH8ymAgq7ToICUIak0FFeTbk04i-RqD7BpitZQrbTmMN-F45R2d.jpg?r=e86">https://pics.filmanffinitiques.com.ar</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate">Anime</p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <div class="row justify-content-evenly">
+                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
+                                    <i class="bi bi-x-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center linea-blanca">
+                        <div class="col-lg-1 col-1">
+                            <p><strong>4</strong></p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">No miren arriba</p>
+                        </div>
+                        <div class="col-lg-3 col-3">
+                            <p class="text-truncate">
+                                Dos astrónomos realizan una gira mediática para advertirle a
+                                la humanidad de un cometa mortal que está en rumbo de colisión
+                                con la Tierra. La respuesta del mundo: ¿Y?
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-2">
+                            <p class="text-truncate">
+                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
+                                    href="https://occ-0-2705-58.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABf2NpNhZsRSLwu3n0KhysCBpHNRlTQu86BLXuxSsleAMrjLNF6G0COGO2-s8YUywD64vHPiX5knGmTkMgF6A002TGi6eilpE329N.jpg?r=7c6">https://pics.filmanffinitiques.com.ar</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <p class="text-truncate">Comedia</p>
+                        </div>
+                        <div class="col-lg-1 col-2">
+                            <div class="row justify-content-evenly">
+                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
+                                    <i class="bi bi-x-square"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light text-center py-4">
+        &copy; Todos los derechos reservados
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
