@@ -91,17 +91,57 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                                <div>
+                                <div class="py-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Código</label>
                                     <input class="form-control" type="text" placeholder="123" disabled>
                                 </div>
+                                <div class="py-2">
+                                    <label for="inputTitulo" class="form-label">Titulo*</label>
+                                    <input type="text" class="form-control" id="inputTitulo" placeholder="Ej: Robotech" required>
+                                </div>
+                                <div class="py-2">
+                                    <label for="descripcionPelicula" class="form-label">Descripcion*</label>
+                                    <textarea class="form-control" id="descripcionPelicula" rows="3" placeholder="Ej: Lorem ipsum dolor sit amet." required></textarea>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputImagen" class="form-label">Imagen*</label>
+                                    <input type="text" class="form-control" id="inputImagen" placeholder="Ej: https://pics.filmanffinitiques.com.ar" required>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputImagen" class="form-label">Genero*</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione una opcion</option>
+                                        <option value="1">Drama</option>
+                                        <option value="2">Comedia</option>
+                                        <option value="3">Terror</option>
+                                        <option value="4">Anime</option>
+                                        <option value="5">Documental</option>
+                                    </select>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputAño" class="form-label">Año</label>
+                                    <input type="number" class="form-control" id="inputAño" placeholder="Ej: 2021" required>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputDuracion" class="form-label">Duración (en minutos)</label>
+                                    <input type="text" class="form-control" id="inputDuracion" placeholder="Ej: 93 min" required>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputPais" class="form-label">País</label>
+                                    <input type="text" class="form-control" id="inputPais" placeholder="Ej: Argentina" required>
+                                </div>
+                                <div class="py-2">
+                                    <label for="inputReparto" class="form-label">Reparto (cada actor separado por ,)</label>
+                                    <input type="text" class="form-control" id="inputReparto" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="container">
+        <section class="container pb-4">
             <div>
                 <h3>Lista de Pelis</h3>
                 <hr />
