@@ -13,18 +13,6 @@ main {
     font-size:xx-small;
 }
 
-.linea-blanca {
-    background-color: white;
-}
-
-.linea-gris {
-    background-color: rgba(220, 217, 217, 0.677);
-}
-
-.texto-descripcion {
-    text-overflow: ellipsis;
-}
-
 .contenedor-info {
     grid-gap: 0px 0px;
 }

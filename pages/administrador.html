@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="/index.html">Peliculas</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -40,7 +40,7 @@
                         <li class="nav-item dropdown">
                             <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <i class="bi bi-moon-stars-fill"></i>
+                                <i class="bi bi-brightness-high-fill"></i>
                             </span>
                             <ul class="dropdown-menu">
                                 <li>
@@ -93,19 +93,22 @@
                             <form>
                                 <div class="py-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Código</label>
-                                    <input class="form-control" type="text" placeholder="123" disabled>
+                                    <input class="form-control" type="text" placeholder="123" disabled />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputTitulo" class="form-label">Titulo*</label>
-                                    <input type="text" class="form-control" id="inputTitulo" placeholder="Ej: Robotech" required>
+                                    <input type="text" class="form-control" id="inputTitulo" placeholder="Ej: Robotech"
+                                        required />
                                 </div>
                                 <div class="py-2">
                                     <label for="descripcionPelicula" class="form-label">Descripcion*</label>
-                                    <textarea class="form-control" id="descripcionPelicula" rows="3" placeholder="Ej: Lorem ipsum dolor sit amet." required></textarea>
+                                    <textarea class="form-control" id="descripcionPelicula" rows="3"
+                                        placeholder="Ej: Lorem ipsum dolor sit amet." required></textarea>
                                 </div>
                                 <div class="py-2">
                                     <label for="inputImagen" class="form-label">Imagen*</label>
-                                    <input type="text" class="form-control" id="inputImagen" placeholder="Ej: https://pics.filmanffinitiques.com.ar" required>
+                                    <input type="text" class="form-control" id="inputImagen"
+                                        placeholder="Ej: https://pics.filmanffinitiques.com.ar" required />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputImagen" class="form-label">Genero*</label>
@@ -120,19 +123,25 @@
                                 </div>
                                 <div class="py-2">
                                     <label for="inputAño" class="form-label">Año</label>
-                                    <input type="number" class="form-control" id="inputAño" placeholder="Ej: 2021" required>
+                                    <input type="number" class="form-control" id="inputAño" placeholder="Ej: 2021"
+                                        required />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputDuracion" class="form-label">Duración (en minutos)</label>
-                                    <input type="text" class="form-control" id="inputDuracion" placeholder="Ej: 93 min" required>
+                                    <input type="text" class="form-control" id="inputDuracion" placeholder="Ej: 93 min"
+                                        required />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputPais" class="form-label">País</label>
-                                    <input type="text" class="form-control" id="inputPais" placeholder="Ej: Argentina" required>
+                                    <input type="text" class="form-control" id="inputPais" placeholder="Ej: Argentina"
+                                        required />
                                 </div>
                                 <div class="py-2">
-                                    <label for="inputReparto" class="form-label">Reparto (cada actor separado por ,)</label>
-                                    <input type="text" class="form-control" id="inputReparto" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black" required>
+                                    <label for="inputReparto" class="form-label">Reparto (cada actor separado por
+                                        ,)</label>
+                                    <input type="text" class="form-control" id="inputReparto"
+                                        placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
+                                        required />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </form>
@@ -141,173 +150,24 @@
                 </div>
             </div>
         </section>
-        <section class="container pb-4">
-            <div>
-                <h3>Lista de Pelis</h3>
-                <hr />
-                <div class="container text-start">
-                    <div class="row align-items-center linea-blanca">
-                        <div class="col-lg-1 col-1">
-                            <p><strong>#</strong></p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate"><strong>Titulo</strong></p>
-                        </div>
-
-                        <div class="col-lg-3 col-3">
-                            <p class="text-truncate"><strong>Descripcion</strong></p>
-                        </div>
-
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate"><strong>Imagen</strong></p>
-                        </div>
-
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate"><strong>Genero</strong></p>
-                        </div>
-
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate"><strong>Acciones</strong></p>
-                        </div>
-                    </div>
-                    <div class="row align-items-center linea-gris">
-                        <div class="col-lg-1 col-1">
-                            <p><strong>1</strong></p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">Comer, rezar, amar.</p>
-                        </div>
-                        <div class="col-lg-3 col-3">
-                            <p class="text-truncate">
-                                Después de su divorcio, Liz decide rehacer su vida. Así que
-                                emprende un viaje por el mundo en busca de buena comida,
-                                espiritualidad y amor verdadero.
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">
-                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
-                                    href="https://akamai.sscdn.co/uploadfile/letras/playlists/9/5/5/3/95536f1edee842239572a0178b9675b8.jpg">https://pics.filmanffinitiques.com.ar</a>
-                            </p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate">Drama</p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <div class="row justify-content-evenly">
-                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
-                                    <i class="bi bi-x-square"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row align-items-center linea-blanca">
-                        <div class="col-lg-1 col-1">
-                            <p><strong>2</strong></p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">Vidas de papel</p>
-                        </div>
-                        <div class="col-lg-3 col-3">
-                            <p class="text-truncate">
-                                En las calles de Estambul, un manipulador de desechos enfermo
-                                le abre las puertas a un niño abandonado que lo hace enfrentar
-                                traumas de su propio pasado.
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">
-                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
-                                    href="https://finde.latercera.com/wp-content/uploads/2021/03/Vidas-de-papel-3-ok-700x450.jpg">https://pics.filmanffinitiques.com.ar</a>
-                            </p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate">Drama</p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <div class="row justify-content-evenly">
-                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
-                                    <i class="bi bi-x-square"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row align-items-center linea-gris">
-                        <div class="col-lg-1 col-1">
-                            <p><strong>3</strong></p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">El increible castillo vagabundo</p>
-                        </div>
-                        <div class="col-lg-3 col-3">
-                            <p class="text-truncate">
-                                Sophie es una adolescente que trabaja en una tienda de
-                                sombreros en un pueblo como muchos, pero su vida da un giro
-                                total cuando una bruja la transforma en una anciana.
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">
-                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
-                                    href="https://occ.a.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABayC_odlLzfnTG7gHh5igKyyUzO3FuJdmYdpEf_ncI68Nd6bXPH8ymAgq7ToICUIak0FFeTbk04i-RqD7BpitZQrbTmMN-F45R2d.jpg?r=e86">https://pics.filmanffinitiques.com.ar</a>
-                            </p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate">Anime</p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <div class="row justify-content-evenly">
-                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
-                                    <i class="bi bi-x-square"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row align-items-center linea-blanca">
-                        <div class="col-lg-1 col-1">
-                            <p><strong>4</strong></p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">No miren arriba</p>
-                        </div>
-                        <div class="col-lg-3 col-3">
-                            <p class="text-truncate">
-                                Dos astrónomos realizan una gira mediática para advertirle a
-                                la humanidad de un cometa mortal que está en rumbo de colisión
-                                con la Tierra. La respuesta del mundo: ¿Y?
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-2">
-                            <p class="text-truncate">
-                                <a class="link-secondary link-offset-2 link-underline link-underline-opacity-0"
-                                    href="https://occ-0-2705-58.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABf2NpNhZsRSLwu3n0KhysCBpHNRlTQu86BLXuxSsleAMrjLNF6G0COGO2-s8YUywD64vHPiX5knGmTkMgF6A002TGi6eilpE329N.jpg?r=7c6">https://pics.filmanffinitiques.com.ar</a>
-                            </p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <p class="text-truncate">Comedia</p>
-                        </div>
-                        <div class="col-lg-1 col-2">
-                            <div class="row justify-content-evenly">
-                                <button type="button" class="btn btn-warning col-lg-5 col-5 p-1">
-                                    <i class="bi bi-pencil-square"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger col-lg-5 col-5 p-1">
-                                    <i class="bi bi-x-square"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="container mt-5">
+            <h2 class="display-6">Lista de Pelis</h2>
+            <hr />
+            <article class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Genero</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPelicula"></tbody>
+                </table>
+            </article>
         </section>
     </main>
 
