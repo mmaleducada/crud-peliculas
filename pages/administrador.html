@@ -90,25 +90,25 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id="form-pelicula">
                                 <div class="py-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Código</label>
                                     <input class="form-control" type="text" placeholder="123" disabled />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputTitulo" class="form-label">Titulo*</label>
-                                    <input type="text" class="form-control" id="inputTitulo" placeholder="Ej: Robotech"
-                                        required />
+                                    <input type="text" class="form-control" id="inputTitulo"
+                                        placeholder="Ej: Robotech" />
                                 </div>
                                 <div class="py-2">
                                     <label for="descripcionPelicula" class="form-label">Descripcion*</label>
                                     <textarea class="form-control" id="descripcionPelicula" rows="3"
-                                        placeholder="Ej: Lorem ipsum dolor sit amet." required></textarea>
+                                        placeholder="Ej: Lorem ipsum dolor sit amet."></textarea>
                                 </div>
                                 <div class="py-2">
                                     <label for="inputImagen" class="form-label">Imagen*</label>
                                     <input type="text" class="form-control" id="inputImagen"
-                                        placeholder="Ej: https://pics.filmanffinitiques.com.ar" required />
+                                        placeholder="Ej: https://pics.filmanffinitiques.com.ar" />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputImagen" class="form-label">Genero*</label>
@@ -123,25 +123,22 @@
                                 </div>
                                 <div class="py-2">
                                     <label for="inputAño" class="form-label">Año</label>
-                                    <input type="number" class="form-control" id="inputAño" placeholder="Ej: 2021"
-                                        required />
+                                    <input type="number" class="form-control" id="inputAño" placeholder="Ej: 2021" />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputDuracion" class="form-label">Duración (en minutos)</label>
-                                    <input type="text" class="form-control" id="inputDuracion" placeholder="Ej: 93 min"
-                                        required />
+                                    <input type="text" class="form-control" id="inputDuracion"
+                                        placeholder="Ej: 93 min" />
                                 </div>
                                 <div class="py-2">
                                     <label for="inputPais" class="form-label">País</label>
-                                    <input type="text" class="form-control" id="inputPais" placeholder="Ej: Argentina"
-                                        required />
+                                    <input type="text" class="form-control" id="inputPais"
+                                        placeholder="Ej: Argentina" />
                                 </div>
                                 <div class="py-2">
-                                    <label for="inputReparto" class="form-label">Reparto (cada actor separado por
-                                        ,)</label>
+                                    <label for="inputReparto" class="form-label">Reparto (cada actor separado por,)</label>
                                     <input type="text" class="form-control" id="inputReparto"
-                                        placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
-                                        required />
+                                        placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black" />
                                 </div>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </form>
@@ -178,6 +175,8 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
+    <!--3) el archivo de js tiene que tener type="module"-->
+    <script src="../js/administrador.js" type="module"></script>
 </body>
 
 </html>
