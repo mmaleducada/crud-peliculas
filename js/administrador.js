@@ -39,7 +39,11 @@ function prepararFormularioPelicula (e) {
 function crearPelicula() {
     // 1) validar los datos (validacion html y validacion js)
     const resumen = resumenValidaciones(titulo.value);
+    // Esta funcion decide si muestra o no el mensaje de error
+    mostrarMensajeError(resumen);
+    
     // 2) si los datos son validos, entonces crear pelicula
+
     if (resumen.length === 0){
         const peliculaEj = new Pelicula(
             "001",
@@ -61,8 +65,15 @@ function crearPelicula() {
     
         console.log(peliculaEj);
 
-    } else {
-        console.log("Aqui hay errores");
     }
 
+}
+
+function mostrarMensajeError (resumen) {
+    if(resumen.length > 0) {
+        alert.className = "alert alert-danger mt-3";
+        alert.innerHTML = resumen;
+    } else {
+        alert.className = "alert alert-danger mt-3 d-none";
+    }
 }
