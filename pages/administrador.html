@@ -73,8 +73,7 @@
             <div class="row">
                 <p class="col-lg-4">
                     Opciones:
-                    <button type="button" class="btn btn-outline-primary" id="boton-sumar-pelicula-admi"
-                        data-bs-toggle="modal" data-bs-target="#boton-sumar-pelicula">
+                    <button type="button" class="btn btn-outline-primary" id="boton-sumar-pelicula-admi">
                         <i class="bi bi-bag-plus-fill"></i>
                     </button>
                 </p>
@@ -93,7 +92,7 @@
                             <form id="form-pelicula">
                                 <div class="py-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Código</label>
-                                    <input class="form-control" type="text" placeholder="123" disabled />
+                                    <input class="form-control" type="text" placeholder="123" disabled id="inputCodigo"/>
                                 </div>
                                 <div class="py-2">
                                     <label for="inputTitulo" class="form-label">Titulo*</label>
@@ -101,8 +100,8 @@
                                         placeholder="Ej: Robotech" />
                                 </div>
                                 <div class="py-2">
-                                    <label for="descripcionPelicula" class="form-label">Descripcion*</label>
-                                    <textarea class="form-control" id="descripcionPelicula" rows="3"
+                                    <label for="inputDescripcion" class="form-label">Descripcion*</label>
+                                    <textarea class="form-control" id="inputDescripcion" rows="3"
                                         placeholder="Ej: Lorem ipsum dolor sit amet."></textarea>
                                 </div>
                                 <div class="py-2">
@@ -111,8 +110,8 @@
                                         placeholder="Ej: https://pics.filmanffinitiques.com.ar" />
                                 </div>
                                 <div class="py-2">
-                                    <label for="inputImagen" class="form-label">Genero*</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <label for="inputGenero" class="form-label">Genero*</label>
+                                    <select class="form-select" aria-label="Default select example" id="inputGenero">
                                         <option selected>Seleccione una opcion</option>
                                         <option value="1">Drama</option>
                                         <option value="2">Comedia</option>
@@ -136,9 +135,16 @@
                                         placeholder="Ej: Argentina" />
                                 </div>
                                 <div class="py-2">
+                                    <label for="inputDirector" class="form-label">Director</label>
+                                    <input type="text" class="form-control" id="inputDirector"
+                                        placeholder="Ej: Carl Macek" />
+                                </div>
+                                <div class="py-2">
                                     <label for="inputReparto" class="form-label">Reparto (cada actor separado por,)</label>
                                     <input type="text" class="form-control" id="inputReparto"
                                         placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black" />
+                                </div>
+                                <div class="alert alert-danger mt-3 d-none" role="alert" id="alerta">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </form>

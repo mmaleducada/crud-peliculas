@@ -4,11 +4,30 @@ import Pelicula from "./classPelicula.js";
 
 //Variables globales
 let formularioPeliculas = document.getElementById("form-pelicula");
+let modalPelicula = new bootstrap.Modal(document.getElementById("boton-sumar-pelicula"));
+const botonCrearPelicula = document.getElementById("boton-sumar-pelicula-admi");
+let listaPeliculas = [];
+let codigo = document.getElementById("inputCodigo");
+let titulo = document.getElementById("inputTitulo");
+let descripcion = document.getElementById("inputDescripcion");
+let imagen = document.getElementById("inputImagen");
+let genero = document.getElementById("inputgenero");
+let año = document.getElementById("inputAño");
+let duracion = document.getElementById("inputDuracion");
+let pais = document.getElementById("inputPais");
+let director = document.getElementById("inputDirector");
+let reparto = document.getElementById("inputReparto");
+let alert = document.getElementById("alerta");
 
 // Manejadores de eventos
 formularioPeliculas.addEventListener("submit", prepararFormularioPelicula)
+botonCrearPelicula.addEventListener("click", desplegarModalPelicula);
 
 // Funciones que necesite
+function desplegarModalPelicula() {
+    modalPelicula.show();
+}
+
 function prepararFormularioPelicula (e) {
     e.preventDefault ();
     console.log("Estoy en el evento submit");
@@ -16,6 +35,9 @@ function prepararFormularioPelicula (e) {
 }
 
 function crearPelicula() {
+    // 1) validar los datos (validacion html y validacion js)
+
+    // 2) si los datos son validos, entonces crear pelicula
     const peliculaEj = new Pelicula(
         "001",
         "El señor de los anillos: La comunidad del anillo",
@@ -27,6 +49,12 @@ function crearPelicula() {
         "Estados Unidos, Nueva Zelanda",
         ["Elijah Wood", "Ian McKellen", "Viggo Mortensen", "Sean Astin", "Orlando Bloom", "John Rhys-Davies", "Dominic Monaghan", "Billy Boyd", "Sean Bean"]
     );
+
+    // 3) guardar los datos en un array (variable global: listaPeliculas)
+
+    // 4) guardar el array en el localstorage
+
+    // 5) mensaje de error
 
     console.log(peliculaEj);
 }
