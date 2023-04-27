@@ -18,4 +18,12 @@ function cambiarTema (color) {
     // setItem guarda en el localstorage - lleva dos parámetros: key=palabra que nos recuerda que guardamos - valor que guardamos
     localStorage.setItem("colorTema", JSON.stringify(color))
 
+    let iconoNavbar = document.querySelector("#padreIconoNavar");
+    
+    if (color === "dark") {
+        iconoNavbar.className = "bi bi-moon-stars-fill";
+    } else {
+        iconoNavbar.className = "bi bi-brightness-high-fill";
+    }
+
 }
