@@ -1,7 +1,7 @@
 // Guardamos todas nuestras funciones de validacion
 
-function validarCantidadCaracteres (texto, min, max,) {
-    if (texto.length >= min && texto.length <= max){
+function validarCantidadCaracteres(texto, min, max,) {
+    if (texto.length >= min && texto.length <= max) {
         console.log("la palabra es valida");
         return true;
     } else {
@@ -12,41 +12,41 @@ function validarCantidadCaracteres (texto, min, max,) {
 
 //https://pics.filmaffinity.com/mavka_the_forest_song-447812217-mmed.jpg
 
-function validarURLImagen (imagen){
+function validarURLImagen(imagen) {
 
 }
 
 export function resumenValidaciones(titulo, descripcion, imagen, genero, año, duracion, pais, director, reparto) {
     let resumen = '';
-    if(!validarCantidadCaracteres(titulo, 2, 100)){
+    if (!validarCantidadCaracteres(titulo, 2, 100)) {
         //si no cumplio la validacion
         resumen += "El titulo debe contener entre 2 y 100 caracteres <br>";
     };
 
-    if(!validarCantidadCaracteres(descripcion, 5, 300)){
+    if (!validarCantidadCaracteres(descripcion, 5, 300)) {
         //si no cumplio la validacion
         resumen += "La descripcion debe contener entre 5 y 300 caracteres <br>";
     };
 
-    if(!validarAño(año, 2023)){
+    if (!validarAño(año, 1990)) {
         resumen += "El año de estreno debe ser entre 1990 y el proximo año <br>";
     }
 
-    if(!validarDuracion(duracion, 1, 600)) {
-        resumen += "La duracion debe ser entre 1 min y 600 min"
+    if (!validarDuracion(duracion, 10, 241)) {
+        resumen += "La duracion debe ser entre 10 min y 241 min"
     }
 
-    if(!validarCantidadCaracteres(pais, 4, 100)){
+    if (!validarCantidadCaracteres(pais, 4, 100)) {
         //si no cumplio la validacion
         resumen += "El pais debe contener entre 4 y 100 caracteres <br>";
     };
 
-    if(!validarCantidadCaracteres(director, 4, 100)){
+    if (!validarCantidadCaracteres(director, 4, 100)) {
         //si no cumplio la validacion
         resumen += "El director debe contener entre 4 y 100 caracteres <br>";
     };
 
-    if(!validarCantidadCaracteres(reparto, 4, 300)){
+    if (!validarCantidadCaracteres(reparto, 4, 300)) {
         //si no cumplio la validacion
         resumen += "El reparto debe contener entre 4 y 300 caracteres <br>";
     };
@@ -54,7 +54,7 @@ export function resumenValidaciones(titulo, descripcion, imagen, genero, año, d
     return resumen;
 }
 
-function validarDuracion (tiempo, min, max) {
+function validarDuracion(tiempo, min, max) {
     if (tiempo >= min && tiempo <= max) {
         console.log("La duracion es valida")
         return true;
@@ -63,13 +63,14 @@ function validarDuracion (tiempo, min, max) {
     }
 }
 
-function validarAño (año, añoActual) {
-    let añoMinimo = 1990;
-    let añoMaximo = añoActual + 1;
+function validarAño(año, desde) {
+    const añoActual = new Date().getFullYear(); // Obtener el año actual <= Math.min(hasta, añoActual)
 
-    if(año >= añoMinimo && año <= añoMaximo){
-        console.log("Año valido")
+    if (parseInt(año) >= desde && parseInt(año) <= añoActual) {
+        console.log("El año está dentro del rango válido")// El año está dentro del rango válido
+        return true;
     } else {
-        console.log("Año invalido")
+        // El año no está dentro del rango válido
+        console.log("El año no está dentro del rango válido")
     }
 }
