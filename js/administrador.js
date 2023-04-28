@@ -38,13 +38,13 @@ function prepararFormularioPelicula (e) {
 
 function crearPelicula() {
     // 1) validar los datos (validacion html y validacion js)
-    const resumen = resumenValidaciones(titulo.value);
+    const resumen = resumenValidaciones(titulo.value, descripcion.value, imagen.value, genero.value, año.value, duracion.value, pais.value, director.value, reparto.value);
     // Esta funcion decide si muestra o no el mensaje de error
     mostrarMensajeError(resumen);
     
     // 2) si los datos son validos, entonces crear pelicula
 
-    if (resumen.length === 0){
+    if (resumen.length === 0 && resumen){
         const peliculaEj = new Pelicula(
             "001",
             "El señor de los anillos: La comunidad del anillo",
