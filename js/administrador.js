@@ -13,8 +13,8 @@ let codigo = document.getElementById("inputCodigo");
 let titulo = document.getElementById("inputTitulo");
 let descripcion = document.getElementById("inputDescripcion");
 let imagen = document.getElementById("inputImagen");
-let genero = document.getElementById("inputgenero");
-let año = document.getElementById("inputAño");
+let genero = document.getElementById("inputGenero");
+let anio = document.getElementById("inputAnio");
 let duracion = document.getElementById("inputDuracion");
 let pais = document.getElementById("inputPais");
 let director = document.getElementById("inputDirector");
@@ -38,7 +38,7 @@ function prepararFormularioPelicula (e) {
 
 function crearPelicula() {
     // 1) validar los datos (validacion html y validacion js)
-    const resumen = resumenValidaciones(titulo.value, descripcion.value, año.value, duracion.value, pais.value, director.value, reparto.value);
+    const resumen = resumenValidaciones(titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, director.value, reparto.value);
     // Esta funcion decide si muestra o no el mensaje de error
     mostrarMensajeError(resumen);
     

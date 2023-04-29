@@ -16,7 +16,7 @@ function validarURLImagen(imagen) {
 
 }
 
-export function resumenValidaciones(titulo, descripcion, imagen, genero, año, duracion, pais, director, reparto) {
+export function resumenValidaciones(titulo, descripcion, imagen, genero, anio, duracion, pais, director, reparto) {
     let resumen = '';
     if (!validarCantidadCaracteres(titulo, 2, 100)) {
         //si no cumplio la validacion
@@ -28,7 +28,7 @@ export function resumenValidaciones(titulo, descripcion, imagen, genero, año, d
         resumen += "La descripcion debe contener entre 5 y 300 caracteres <br>";
     };
 
-    if (!validarAño(año, 1990)) {
+    if (!validarAño(anio, 1990)) {
         resumen += "El año de estreno debe ser entre 1990 y el proximo año <br>";
     }
 
@@ -63,10 +63,10 @@ function validarDuracion(tiempo, min, max) {
     }
 }
 
-function validarAño(año, desde) {
+function validarAño(anio, desde) {
     const añoActual = new Date().getFullYear(); // Obtener el año actual <= Math.min(hasta, añoActual)
 
-    if (parseInt(año) >= desde && parseInt(año) <= añoActual) {
+    if (parseInt(anio) >= desde && parseInt(anio) <= añoActual) {
         console.log("El año está dentro del rango válido")// El año está dentro del rango válido
         return true;
     } else {
