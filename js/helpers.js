@@ -27,6 +27,11 @@ export function resumenValidaciones(titulo, descripcion, imagen, genero, anio, d
         //si no cumplio la validacion
         resumen += "La URL debe ser valida y contener una extension (.jpg, .png o .gif) <br>";
     };
+
+    if (!validarGenero (genero)) {
+        //si no cumplio la validacion
+        resumen += "Debe seleccionar un genero de la lista <br>";
+    };
     
     if (!validarAño(anio, 1990)) {
         resumen += "El año de estreno debe ser entre 1990 y el proximo año <br>";
@@ -87,6 +92,16 @@ function validarURLImagen(imagen) {
         return true;
     } else {
         console.log("La url de la imagen es invalida");
+        return false;
+    }
+}
+
+function validarGenero (genero){
+    if(genero.length > 0 && genero === "Drama" || genero === "Comedia" || genero === "Terror" || genero === "Anime" || genero === "Documental"){
+        console.log("Selecciono un genero correctamente");
+        return true;
+    } else {
+        console.log("No selecciono ningun genero de la lista");
         return false;
     }
 }
