@@ -45,7 +45,7 @@ function crearPelicula() {
     // 2) si los datos son validos, entonces crear pelicula
 
     if (resumen.length === 0){
-        const peliculaEj = new Pelicula(
+        const peliculaNueva = new Pelicula(
             undefined, // indicamos que no sabemos que vamos a mandar
             titulo.value,
             descripcion.value,
@@ -57,15 +57,17 @@ function crearPelicula() {
             director.value,
             reparto.value
         );
-    
+
         // 3) guardar los datos en un array (variable global: listaPeliculas)
+        listaPeliculas.push(peliculaNueva);
     
         // 4) guardar el array en el localstorage
-    
+        guardarEnLocalstorage();
         // 5) mensaje de error
     
-        console.log(peliculaEj);
-
+        console.log(peliculaNueva);
+        // limpiar el formulario
+        limpiarFormulario();
     }
 
 }
@@ -77,4 +79,12 @@ function mostrarMensajeError (resumen) {
     } else {
         alert.className = "alert alert-danger mt-3 d-none";
     }
+}
+
+function guardarEnLocalstorage(){
+    localStorage.setItem("listaPeliculas", JSON.stringify(listaPeliculas));
+}
+
+function limpiarFormulario() {
+    formularioPeliculas.reset();
 }

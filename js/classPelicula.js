@@ -103,4 +103,20 @@ export default class Pelicula {
     set reparto(reparto) {
       this.#reparto = reparto;
     }
+
+    // metodo que me permite acceder a las propiedades privadas. Solamente de uso exclusivo para que funcione stringify
+    toJSON(){
+      return {
+        codigo : this.codigo,
+        titulo : this.titulo,
+        descripcion : this.descripcion,
+        imagen : this.imagen,
+        genero : this.genero,
+        anio : this.anio,
+        duracion : this.duracion,
+        pais : this.pais,
+        director : this.director,
+        reparto : this.reparto
+      }
+    }
   }
