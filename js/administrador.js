@@ -23,8 +23,8 @@ let alert = document.getElementById("alerta");
 let listaPeliculas = JSON.parse(localStorage.getItem("listaPeliculas")) || [];
 
 // si tengo peliculas almacenadas en el array, las transformo en tipo Pelicula
-if (listaPeliculas.length !== 0){
-    listaPeliculas = listaPeliculas.map((pelicula)=> new Pelicula(pelicula.codigo, pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.director, pelicula.reparto))
+if (listaPeliculas.length !== 0) {
+    listaPeliculas = listaPeliculas.map((pelicula) => new Pelicula(pelicula.codigo, pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.director, pelicula.reparto))
 }
 console.log(listaPeliculas);
 
@@ -39,8 +39,8 @@ function desplegarModalPelicula() {
     modalPelicula.show();
 }
 
-function prepararFormularioPelicula (e) {
-    e.preventDefault ();
+function prepararFormularioPelicula(e) {
+    e.preventDefault();
     console.log("Estoy en el evento submit");
     crearPelicula();
 }
@@ -50,10 +50,10 @@ function crearPelicula() {
     const resumen = resumenValidaciones(titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, director.value, reparto.value);
     // Esta funcion decide si muestra o no el mensaje de error
     mostrarMensajeError(resumen);
-    
+
     // 2) si los datos son validos, entonces crear pelicula
 
-    if (resumen.length === 0){
+    if (resumen.length === 0) {
         const peliculaNueva = new Pelicula(
             undefined, // indicamos que no sabemos que vamos a mandar
             titulo.value,
@@ -69,10 +69,10 @@ function crearPelicula() {
 
         // 3) guardar los datos en un array (variable global: listaPeliculas)
         listaPeliculas.push(peliculaNueva);
-    
+
         // 4) guardar el array en el localstorage
         guardarEnLocalstorage();
-        
+
         console.log(peliculaNueva);
         // dibujar la fila en la tabla
         crearFila(peliculaNueva, listaPeliculas.length);
@@ -85,12 +85,12 @@ function crearPelicula() {
         // limpiar el formulario
         limpiarFormulario();
     }
-    
+
 }
 
 // mensaje de error
-function mostrarMensajeError (resumen) {
-    if(resumen.length > 0) {
+function mostrarMensajeError(resumen) {
+    if (resumen.length > 0) {
         alert.className = "alert alert-danger mt-3";
         alert.innerHTML = resumen;
     } else {
@@ -98,7 +98,7 @@ function mostrarMensajeError (resumen) {
     }
 }
 
-function guardarEnLocalstorage(){
+function guardarEnLocalstorage() {
     localStorage.setItem("listaPeliculas", JSON.stringify(listaPeliculas));
 }
 
@@ -107,7 +107,7 @@ function limpiarFormulario() {
 }
 
 function cargaInicial() {
-    if(listaPeliculas.length !== 0){
+    if (listaPeliculas.length !== 0) {
         listaPeliculas.map((pelicula, posicion) => crearFila(pelicula, posicion + 1))
     }
 }
@@ -133,17 +133,37 @@ function crearFila(pelicula, fila) {
 </tr>`
 }
 // para hacer el DELETE
-window.borrarPelicula = (codigo) =>{
+window.borrarPelicula = (codigo) => {
     console.log(codigo);
-    //1 - buscar del array a donde esta el elemento que tiene ese codigo
-    let posicionPelicula = listaPeliculas.findIndex((pelicula)=> pelicula.codigo === codigo);
-    // 2 - borrar la pelicula del array SPLICE
-    listaPeliculas.splice(posicionPelicula, 1);
-    // 3- actualizar el localstorage
-    guardarEnLocalstorage();
-    // 4- borrar la fila de la tabla
-    let tablaPelicula = document.getElementById("tablaPelicula");
-    
-    tablaPelicula.removeChild(tablaPelicula.children[posicionPelicula]);
-    // 5 - mostrar un cartel al usuario
+    Swal.fire({
+        title: 'Estas seguro que quieres borrar esta pelicula?',
+        text: "No puedes volver luego de borrar una pelicula!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Borrar',
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //1 - buscar del array a donde esta el elemento que tiene ese codigo
+            let posicionPelicula = listaPeliculas.findIndex((pelicula) => pelicula.codigo === codigo);
+            // 2 - borrar la pelicula del array SPLICE
+            listaPeliculas.splice(posicionPelicula, 1);
+            // 3- actualizar el localstorage
+            guardarEnLocalstorage();
+            // 4- borrar la fila de la tabla
+            let tablaPelicula = document.getElementById("tablaPelicula");
+        
+            tablaPelicula.removeChild(tablaPelicula.children[posicionPelicula]);
+            // 5 - mostrar un cartel al usuario
+            Swal.fire(
+                'Pelicula eliminada!',
+                'La pelicula se elimino correctamente',
+                'success'
+            )
+
+            // 6 - actualizar los numeros de la tabla
+        }
+    })
 }
