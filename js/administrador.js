@@ -74,9 +74,16 @@ function crearPelicula() {
         guardarEnLocalstorage();
         
         console.log(peliculaNueva);
+        // dibujar la fila en la tabla
+        crearFila(peliculaNueva, listaPeliculas.length);
+        // mostrar un mensaje intuitivo
+        Swal.fire(
+            'Excelente!',
+            'La pelicula fue creada exitosamente!',
+            'success'
+        )
         // limpiar el formulario
         limpiarFormulario();
-        // mostrar un mensaje intuitivo
     }
     
 }
@@ -101,16 +108,16 @@ function limpiarFormulario() {
 
 function cargaInicial() {
     if(listaPeliculas.length !== 0){
-        listaPeliculas.map((pelicula) => crearFila(pelicula))
+        listaPeliculas.map((pelicula, posicion) => crearFila(pelicula, posicion + 1))
     }
 }
 
 cargaInicial();
 
-function crearFila(pelicula) {
+function crearFila(pelicula, fila) {
     let tablaPelicula = document.getElementById("tablaPelicula");
     tablaPelicula.innerHTML += `<tr>
-    <th scope="row">1</th>
+    <th scope="row">${fila}</th>
     <td>${pelicula.titulo}</td>
     <td><span class="my-class text-truncate">${pelicula.descripcion}</span></td>
     <td><span class="my-class text-truncate">${pelicula.imagen}</span></td>

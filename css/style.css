@@ -16,3 +16,8 @@ main {
 .contenedor-info {
     grid-gap: 0px 0px;
 }
+
+.my-class {
+    display: inline-block;
+    max-width: 10rem;
+  }
