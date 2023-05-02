@@ -63,15 +63,16 @@ function crearPelicula() {
     
         // 4) guardar el array en el localstorage
         guardarEnLocalstorage();
-        // 5) mensaje de error
-    
+        
         console.log(peliculaNueva);
         // limpiar el formulario
         limpiarFormulario();
+        // mostrar un mensaje intuitivo
     }
-
+    
 }
 
+// mensaje de error
 function mostrarMensajeError (resumen) {
     if(resumen.length > 0) {
         alert.className = "alert alert-danger mt-3";
