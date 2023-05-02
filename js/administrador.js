@@ -46,15 +46,16 @@ function crearPelicula() {
 
     if (resumen.length === 0){
         const peliculaEj = new Pelicula(
-            "001",
-            "El señor de los anillos: La comunidad del anillo",
-            "La Comunidad del Anillo es la primera parte de la trilogía El Señor de los Anillos, de J. R. R. Tolkien.",
-            "https://es.wikipedia.org/wiki/El_se%C3%B1or_de_los_anillos:_La_comunidad_del_anillo#/media/Archivo:The_Lord_of_the_Rings_-_The_Fellowship_of_the_Ring.jpg",
-            "Fantasía",
-            2001,
-            "2 horas y 58 minutos",
-            "Estados Unidos, Nueva Zelanda",
-            ["Elijah Wood", "Ian McKellen", "Viggo Mortensen", "Sean Astin", "Orlando Bloom", "John Rhys-Davies", "Dominic Monaghan", "Billy Boyd", "Sean Bean"]
+            undefined, // indicamos que no sabemos que vamos a mandar
+            titulo.value,
+            descripcion.value,
+            imagen.value,
+            genero.value,
+            anio.value,
+            duracion.value,
+            pais.value,
+            director.value,
+            reparto.value
         );
     
         // 3) guardar los datos en un array (variable global: listaPeliculas)

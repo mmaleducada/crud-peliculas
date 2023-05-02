@@ -8,10 +8,11 @@ export default class Pelicula {
     #anio;
     #duracion;
     #pais;
+    #director;
     #reparto;
   
-    constructor(titulo, descripcion, imagen, genero, anio, duracion, pais, reparto) {
-      this.#codigo = 0;
+    constructor(codigo = uuidv4(), titulo, descripcion, imagen, genero, anio, duracion, pais, director, reparto) {
+      this.#codigo = codigo;
       this.#titulo = titulo;
       this.#descripcion = descripcion;
       this.#imagen = imagen;
@@ -19,6 +20,7 @@ export default class Pelicula {
       this.#anio = anio;
       this.#duracion = duracion;
       this.#pais = pais;
+      this.#director = director;
       this.#reparto = reparto;
     }
   
@@ -84,6 +86,14 @@ export default class Pelicula {
   
     set pais(pais) {
       this.#pais = pais;
+    }
+
+    get director() {
+      return this.#director;
+    }
+  
+    set director(director) {
+      this.#director = director;
     }
   
     get reparto() {

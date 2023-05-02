@@ -38,7 +38,7 @@ export function resumenValidaciones(titulo, descripcion, imagen, genero, anio, d
     }
     
     if (!validarDuracion(duracion, 10, 241)) {
-        resumen += "La duracion debe ser entre 10 min y 241 min"
+        resumen += "La duracion debe ser entre 10 min y 241 min <br>"
     }
     
     if (!validarCantidadCaracteres(pais, 4, 100)) {
