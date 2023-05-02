@@ -8,7 +8,6 @@ import { resumenValidaciones } from "./helpers.js";
 let formularioPeliculas = document.getElementById("form-pelicula");
 let modalPelicula = new bootstrap.Modal(document.getElementById("boton-sumar-pelicula"));
 const botonCrearPelicula = document.getElementById("boton-sumar-pelicula-admi");
-let listaPeliculas = [];
 let codigo = document.getElementById("inputCodigo");
 let titulo = document.getElementById("inputTitulo");
 let descripcion = document.getElementById("inputDescripcion");
@@ -20,6 +19,16 @@ let pais = document.getElementById("inputPais");
 let director = document.getElementById("inputDirector");
 let reparto = document.getElementById("inputReparto");
 let alert = document.getElementById("alerta");
+
+let listaPeliculas = JSON.parse(localStorage.getItem("listaPeliculas")) || [];
+
+// si tengo peliculas almacenadas en el array, las transformo en tipo Pelicula
+if (listaPeliculas.length !== 0){
+    listaPeliculas = listaPeliculas.map((pelicula)=> new Pelicula(pelicula.codigo, pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.director, pelicula.reparto))
+}
+console.log(listaPeliculas);
+
+// {...pelicula} = es la forma abreviada de escribir: pelicula.codigo, pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.director, pelicula.reparto
 
 // Manejadores de eventos
 formularioPeliculas.addEventListener("submit", prepararFormularioPelicula)
@@ -88,4 +97,31 @@ function guardarEnLocalstorage(){
 
 function limpiarFormulario() {
     formularioPeliculas.reset();
+}
+
+function cargaInicial() {
+    if(listaPeliculas.length !== 0){
+        listaPeliculas.map((pelicula) => crearFila(pelicula))
+    }
+}
+
+cargaInicial();
+
+function crearFila(pelicula) {
+    let tablaPelicula = document.getElementById("tablaPelicula");
+    tablaPelicula.innerHTML += `<tr>
+    <th scope="row">1</th>
+    <td>${pelicula.titulo}</td>
+    <td><span class="my-class text-truncate">${pelicula.descripcion}</span></td>
+    <td><span class="my-class text-truncate">${pelicula.imagen}</span></td>
+    <td>${pelicula.genero}</td>
+    <td>
+        <button class="btn btn-warning" onclick="editarPelicula('${pelicula.codigo}')">
+            <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="btn btn-danger" onclick="borrarPelicula('${pelicula.codigo}')">
+            <i class="bi bi-x-square"></i>
+        </button>
+    </td>
+</tr>`
 }
