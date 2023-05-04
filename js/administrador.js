@@ -123,7 +123,7 @@ function crearFila(pelicula, fila) {
     <td><span class="my-class text-truncate">${pelicula.imagen}</span></td>
     <td>${pelicula.genero}</td>
     <td>
-        <button class="btn btn-warning" onclick="editarPelicula('${pelicula.codigo}')">
+        <button class="btn btn-warning" onclick="prepararPelicula('${pelicula.codigo}')">
             <i class="bi bi-pencil-square"></i>
         </button>
         <button class="btn btn-danger" onclick="borrarPelicula('${pelicula.codigo}')">
@@ -167,3 +167,23 @@ window.borrarPelicula = (codigo) => {
         }
     })
 }
+//EDITAR PELICULA (1)
+//Llamar una funcion desde el click del boton
+window.prepararPelicula = (codigoPelicula) => {
+    //tener los datos de la pelicula y cargarlos en el formulario de la ventana modal
+    let peliculaBuscada = listaPeliculas.find((pelicula)=> pelicula.codigo === codigoPelicula);
+    //mostrar la ventana modal
+    codigo.value = peliculaBuscada.codigo;
+    titulo.value = peliculaBuscada.titulo;
+    descripcion.value = peliculaBuscada.descripcion;
+    imagen.value = peliculaBuscada.imagen;
+    genero.value = peliculaBuscada.genero;
+    anio.value = peliculaBuscada.anio;
+    duracion.value = peliculaBuscada.duracion;
+    pais.value = peliculaBuscada.pais;
+    director.value = peliculaBuscada.director;
+    reparto.value = peliculaBuscada.reparto;
+
+    modalPelicula.show();
+}
+//EDITAR PELICULA (2)
