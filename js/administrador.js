@@ -217,6 +217,19 @@ function editarPelicula (){
     //Actualizar el localstorage
     guardarEnLocalstorage();
     //Actualizar la fila de la tabla
+    let tablaPelicula = document.getElementById("tablaPelicula");
+    let filaTabla = tablaPelicula.children[posicionPelicula];
+    filaTabla.children[1].innerHTML = titulo.value;
+    filaTabla.children[2].children[0].innerHTML = descripcion.value;
+    filaTabla.children[3].children[0].innerHTML= imagen.value;
+    filaTabla.children[4].innerHTML = genero.value;
     //Mostrar un cartel al usuario
+    Swal.fire(
+        'Pelicula modificada!',
+        'La pelicula fue editada exitosamente!',
+        'success'
+    )
     //Limpiar el formulario y cerrar el modal.
+    limpiarFormulario();
+    modalPelicula.hide();
 }
