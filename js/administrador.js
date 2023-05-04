@@ -19,6 +19,7 @@ let pais = document.getElementById("inputPais");
 let director = document.getElementById("inputDirector");
 let reparto = document.getElementById("inputReparto");
 let alert = document.getElementById("alerta");
+let altaPelicula = true; // cuando altaPelicula sea igual a TRUE, creo una pelicula. Cuando sea FALSE, quiero editar.
 
 let listaPeliculas = JSON.parse(localStorage.getItem("listaPeliculas")) || [];
 
@@ -42,7 +43,11 @@ function desplegarModalPelicula() {
 function prepararFormularioPelicula(e) {
     e.preventDefault();
     console.log("Estoy en el evento submit");
-    crearPelicula();
+    if (altaPelicula === true) {
+        crearPelicula();
+    } else {
+        editarPelicula();
+    }
 }
 
 function crearPelicula() {
@@ -154,7 +159,7 @@ window.borrarPelicula = (codigo) => {
             guardarEnLocalstorage();
             // 4- borrar la fila de la tabla
             let tablaPelicula = document.getElementById("tablaPelicula");
-        
+
             tablaPelicula.removeChild(tablaPelicula.children[posicionPelicula]);
             // 5 - mostrar un cartel al usuario
             Swal.fire(
@@ -171,7 +176,7 @@ window.borrarPelicula = (codigo) => {
 //Llamar una funcion desde el click del boton
 window.prepararPelicula = (codigoPelicula) => {
     //tener los datos de la pelicula y cargarlos en el formulario de la ventana modal
-    let peliculaBuscada = listaPeliculas.find((pelicula)=> pelicula.codigo === codigoPelicula);
+    let peliculaBuscada = listaPeliculas.find((pelicula) => pelicula.codigo === codigoPelicula);
     //mostrar la ventana modal
     codigo.value = peliculaBuscada.codigo;
     titulo.value = peliculaBuscada.titulo;
@@ -183,7 +188,35 @@ window.prepararPelicula = (codigoPelicula) => {
     pais.value = peliculaBuscada.pais;
     director.value = peliculaBuscada.director;
     reparto.value = peliculaBuscada.reparto;
-
     modalPelicula.show();
+    // cambiamos el valor de la variable booleana
+    altaPelicula = false;
 }
 //EDITAR PELICULA (2)
+function editarPelicula (){
+    console.log("aqui tengo que editar");
+    //Buscar posicion de la pelicula en el array
+    let posicionPelicula = listaPeliculas.findIndex((pelicula)=> pelicula.codigo === codigo.value)
+    //validar los datos
+    const resumen = resumenValidaciones(titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, director.value, reparto.value);
+    // Esta funcion decide si muestra o no el mensaje de error
+    mostrarMensajeError(resumen);
+    // 2) si los datos son validos, entonces editar pelicula
+    if (resumen.length === 0) {
+        //Editar los valores de la pelicula dentro del array
+        listaPeliculas[posicionPelicula].titulo = titulo.value;
+        listaPeliculas[posicionPelicula].descripcion = descripcion.value;
+        listaPeliculas[posicionPelicula].imagen = imagen.value;
+        listaPeliculas[posicionPelicula].genero = genero.value;
+        listaPeliculas[posicionPelicula].anio = anio.value;
+        listaPeliculas[posicionPelicula].duracion = duracion.value;
+        listaPeliculas[posicionPelicula].pais = pais.value;
+        listaPeliculas[posicionPelicula].director = director.value;
+        listaPeliculas[posicionPelicula].reparto = reparto.value; 
+    }
+    //Actualizar el localstorage
+    guardarEnLocalstorage();
+    //Actualizar la fila de la tabla
+    //Mostrar un cartel al usuario
+    //Limpiar el formulario y cerrar el modal.
+}
